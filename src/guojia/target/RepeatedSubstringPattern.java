@@ -19,17 +19,27 @@ public class RepeatedSubstringPattern {
      * @return
      */
     public boolean repeatedSubstringPattern(String str) {
-        if (str == null || str.length() == 0 ) {
+        if (str == null || str.length() == 0) {
             return false;
         }
         int len = str.length();
-        for (int i = len / 2; i > 1; i--) {
-            if (len % ())
+        for (int i = len / 2 ; i > 0; i--) {
+            if (len % i == 0) {
+                String pattern = str.substring(0, i);
+                StringBuilder sb = new StringBuilder();
+                for (int k = 0; k < len/i; k++) {
+                    sb.append(pattern);
+                }
+                if (sb.toString().equals(str)) {
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
     public static void main(String[] args) {
         RepeatedSubstringPattern solution = new RepeatedSubstringPattern();
-        System.out.println(solution.repeatedSubstringPattern("abcdabcd"));
+        System.out.println(solution.repeatedSubstringPattern("bb"));
     }
 }
